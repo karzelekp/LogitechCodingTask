@@ -19,11 +19,11 @@ import androidx.room.*
 data class Report(
     @PrimaryKey
     @ColumnInfo(name = "id")
-    val id: Int,
+    var id: Long?,
 
     @ColumnInfo(name = "employee_id")
-    val employeeId: Int,
+    var employeeId: Long?,
 
     @ColumnInfo(name = "content")
-    val content: String
+    var content: String?
 )

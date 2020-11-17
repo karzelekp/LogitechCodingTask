@@ -8,7 +8,10 @@ import pl.karzelek.logitechcodingtask.company.Employee
 interface EmployeeDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(posts: Collection<Employee>)
+    suspend fun insertAll(employees: Collection<Employee>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(employee: Employee): Long
 
     @Query("SELECT * FROM employees")
     fun getAll(): LiveData<List<Employee>>
@@ -16,4 +19,12 @@ interface EmployeeDao {
     @Query("SELECT * FROM employees")
     @Transaction
     fun getEmployeesWithReports(): LiveData<List<EmployeeWithReports>>
+
+    @Query("SELECT * FROM employees WHERE name = :name")
+    @Transaction
+    fun getEmployeesWithReports(name: String): LiveData<List<EmployeeWithReports>>
+}
+
+suspend fun EmployeeDao.insertAndUpdateId(vararg employees: Employee) = employees.forEach {
+    it.employeeId = insert(it)
 }

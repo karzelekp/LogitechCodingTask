@@ -5,21 +5,22 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-const val CEO_ID = -1
-
 @Entity(tableName = "employees")
 data class Employee(
 
     @PrimaryKey
     @ColumnInfo(name = "id")
-    val employeeId: Int?,
+    var employeeId: Long?,
 
     @ColumnInfo(name = "boss_id")
-    val bossId: Int?,
+    var bossId: Long?,
+
+    @ColumnInfo(name = "name", collate = ColumnInfo.NOCASE)
+    var name: String?,
 
     @ColumnInfo(name = "age")
-    val age: Int?,
+    var age: Int?,
 
     @Embedded
-    val address: Address?,
+    var address: Address?,
 )

@@ -4,14 +4,14 @@ import androidx.room.ColumnInfo
 
 data class Address(
     @ColumnInfo(name = "street")
-    val street: String?,
+    var street: String?,
 
     @ColumnInfo(name = "suite")
-    val suite: String?,
+    var suite: String?,
 
     @ColumnInfo(name = "city")
-    val city: String?,
+    var city: String?,
 
     @ColumnInfo(name = "zip_code")
-    val zipCode: String?,
+    var zipCode: String?,
 )

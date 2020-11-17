@@ -1,43 +1,30 @@
 package pl.karzelek.logitechcodingtask.ui.main
 
-import android.content.Context
-import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.room.Room
 import kotlinx.coroutines.launch
-import pl.karzelek.logitechcodingtask.company.Employee
-import pl.karzelek.logitechcodingtask.company.Report
-import pl.karzelek.logitechcodingtask.db.TaskDatabase
+import pl.karzelek.logitechcodingtask.App
+import pl.karzelek.logitechcodingtask.db.Repository
 
-class MainViewModel : ViewModel() {
+class MainViewModel(application: App) : AndroidViewModel(application) {
 
-    fun x(context: Context) {
+    private val repository = Repository(application)
 
-        val taskDatabase = Room.databaseBuilder(
-            context,
-            TaskDatabase::class.java,
-            TaskDatabase.NAME
-        ).build()
+    val johnEmployeesLiveData = repository.johnEmployeesLiveData
 
-
-        taskDatabase.employeeDao().getEmployeesWithReports().observeForever {
-            Log.d("asdf", "employee: $it")
-        }
-
+    fun onActivityCreated() {
         viewModelScope.launch {
-            taskDatabase.employeeDao().insertAll(
-                listOf(
-                    Employee(1, 2, 20, null)
-                )
-            )
-            taskDatabase.reportDao().insertAll(
-                listOf(
-                    Report(2, 1, "report content")
-                )
-            )
+            repository.saveTestData()
         }
+    }
 
-        //todo provide test data (with John etc)
+    @Suppress("UNCHECKED_CAST")
+    class Factory(private val application: App) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            return (if (modelClass == MainViewModel::class.java) MainViewModel(application) as T
+            else throw IllegalArgumentException("unknown modelClass"))
+        }
     }
 }
