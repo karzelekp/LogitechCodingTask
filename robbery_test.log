@@ -1,0 +1,42 @@
+testing: empty
+moneyPerHouses:	[]
+result:0
+
+testing: single element
+moneyPerHouses:	[13]
+result:13
+
+testing: two elements
+moneyPerHouses:	[13, 7]
+calculations:
+13
+13
+result:13
+
+testing: task's example
+moneyPerHouses:	[1, 2, 3, 1]
+calculations:
+1
+2
+4
+4
+result:4
+
+testing: the result should contain one number at even index and one at odd index
+moneyPerHouses:	[0, 0, 10, 2, 3, 10]
+calculations:
+0
+0
+10
+10
+13
+20
+result:20
+
+testing: negative number
+moneyPerHouses:	[-3]
+money shouldn't be negative, aborting calculation
+result:0
+
+
+Process finished with exit code 0

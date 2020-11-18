@@ -15,8 +15,10 @@ class RobberyCalculatorTest(
     @Test
     fun test() {
         //when
+        println("testing: ${params.message}")
         val result = RobberyCalculator().calculate(params.moneyPerHouses.toVector())
         //then
+        println("result:$result\n")
         assertEquals(params.message, params.expectedResult, result)
     }
 
