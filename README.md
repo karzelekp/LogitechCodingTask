@@ -21,3 +21,7 @@
 * connect Android device with ADB debugging turned ON
 * wait for Gradle synchronization
 * click on green "Run" button
+
+**Generating the log files:**
+* robbery_test.log: run RobberyCalculatorTest and copy the console output
+* class_structure.log: run the application and copy logcat filtered by tag: "class_structure"
