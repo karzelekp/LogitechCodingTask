@@ -1,0 +1,16 @@
+2020-11-18 11:32:51.121 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: search result for phrase 'john':[]
+2020-11-18 11:32:51.122 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: clearing all tables
+2020-11-18 11:32:51.126 2734-2811/pl.karzelek.logitechcodingtask D/class_structure: writing into database: Employee(employeeId=null, bossId=null, name=John, age=40, address=Address(street=Legnicka, suite=suite, city=Wrocław, zipCode=53-426))
+2020-11-18 11:32:51.128 2734-2811/pl.karzelek.logitechcodingtask D/class_structure: writing into database: [Report(id=null, employeeId=1, content=content)]
+2020-11-18 11:32:51.139 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: search result for phrase 'john':[]
+2020-11-18 11:32:51.140 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: writing into database: Employee(employeeId=null, bossId=1, name=Mary, age=20, address=null)
+2020-11-18 11:32:51.144 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: writing into database: Employee(employeeId=null, bossId=1, name=Peter, age=25, address=null)
+2020-11-18 11:32:51.146 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: search result for phrase 'john':[EmployeeWithReports(employee=Employee(employeeId=1, bossId=null, name=John, age=40, address=Address(street=Legnicka, suite=suite, city=Wrocław, zipCode=53-426)), reports=[Report(id=1, employeeId=1, content=content)])]
+2020-11-18 11:32:51.148 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: writing into database: Employee(employeeId=null, bossId=1, name=Michael, age=30, address=null)
+2020-11-18 11:32:51.150 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: writing into database: Employee(employeeId=null, bossId=2, name=Sam, age=20, address=null)
+2020-11-18 11:32:51.154 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: search result for phrase 'john':[EmployeeWithReports(employee=Employee(employeeId=1, bossId=null, name=John, age=40, address=Address(street=Legnicka, suite=suite, city=Wrocław, zipCode=53-426)), reports=[Report(id=1, employeeId=1, content=content)])]
+2020-11-18 11:32:51.156 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: writing into database: Employee(employeeId=null, bossId=2, name=Will, age=30, address=null)
+2020-11-18 11:32:51.157 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: writing into database: Employee(employeeId=null, bossId=6, name=Jackie, age=40, address=null)
+2020-11-18 11:32:51.161 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: search result for phrase 'john':[EmployeeWithReports(employee=Employee(employeeId=1, bossId=null, name=John, age=40, address=Address(street=Legnicka, suite=suite, city=Wrocław, zipCode=53-426)), reports=[Report(id=1, employeeId=1, content=content)])]
+2020-11-18 11:32:51.162 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: writing into database: Employee(employeeId=null, bossId=6, name=Frank, age=26, address=null)
+2020-11-18 11:32:51.165 2734-2734/pl.karzelek.logitechcodingtask D/class_structure: search result for phrase 'john':[EmployeeWithReports(employee=Employee(employeeId=1, bossId=null, name=John, age=40, address=Address(street=Legnicka, suite=suite, city=Wrocław, zipCode=53-426)), reports=[Report(id=1, employeeId=1, content=content)])]

@@ -1,5 +1,6 @@
 package pl.karzelek.logitechcodingtask.db
 
+import android.util.Log
 import pl.karzelek.logitechcodingtask.App
 import pl.karzelek.logitechcodingtask.company.Address
 import pl.karzelek.logitechcodingtask.company.Employee
@@ -9,10 +10,13 @@ import pl.karzelek.logitechcodingtask.extensions.runInTransactionSuspend
 
 class Repository(private val application: App) {
 
-    val johnEmployeesLiveData = application.database.employeeDao().getEmployeesWithReports("john")
+    val johnEmployeesLiveData = application.database.employeeDao().getEmployeesWithReports(
+        SEARCH_PHRASE
+    )
 
     suspend fun saveTestData() {
         application.database.clearAllTablesSuspend()
+        Log.d(CLASS_STRUCTURE_TAG, "clearing all tables")
         val dao = application.database.employeeDao()
 
         val john = Employee(
@@ -49,7 +53,11 @@ class Repository(private val application: App) {
             reports.forEach {
                 it.employeeId = employee.employeeId
             }
+            Log.d(CLASS_STRUCTURE_TAG, "writing into database: $reports")
             db.reportDao().insertAll(reports)
         }
     }
 }
+
+const val SEARCH_PHRASE = "john"
+const val CLASS_STRUCTURE_TAG = "class_structure"

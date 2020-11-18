@@ -1,5 +1,6 @@
 package pl.karzelek.logitechcodingtask.db
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import pl.karzelek.logitechcodingtask.company.Employee
@@ -26,5 +27,6 @@ interface EmployeeDao {
 }
 
 suspend fun EmployeeDao.insertAndUpdateId(vararg employees: Employee) = employees.forEach {
+    Log.d(CLASS_STRUCTURE_TAG, "writing into database: $it")
     it.employeeId = insert(it)
 }

@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import pl.karzelek.logitechcodingtask.App
 import pl.karzelek.logitechcodingtask.R
+import pl.karzelek.logitechcodingtask.db.CLASS_STRUCTURE_TAG
+import pl.karzelek.logitechcodingtask.db.SEARCH_PHRASE
 
 class MainFragment : Fragment() {
 
@@ -33,12 +35,9 @@ class MainFragment : Fragment() {
         ).get(MainViewModel::class.java)
 
         viewModel.johnEmployeesLiveData.observe(viewLifecycleOwner, {
-            Log.d(TAG, "John search result:$it")
+            Log.d(CLASS_STRUCTURE_TAG, "search result for phrase '$SEARCH_PHRASE':$it")
         })
 
         viewModel.onActivityCreated()
     }
-
 }
-
-private const val TAG = "MainFragment"
